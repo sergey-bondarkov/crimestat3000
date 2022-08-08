@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: crimestat3000
+Version: 0.1.5
+Summary: A tool for parsing crime statistics reports (form 4-ЕГС) from crimestat.ru.
+Author: Sergey Bondarkov
+Author-email: q4qk79ncm@mozmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # crimestat3000
 
 A tool for automated parsing of Russian crime statistics reports (form 4-ЕГС) from [crimestat.ru](http://crimestat.ru). All you need to know is which section of report you need, which sheets and columns. (**Beware**: these tend to change over the years so make sure to check for that and if needed separate you parsing process into several parts with different configurations.) 
@@ -31,5 +43,7 @@ table_2016 = cs.parse.period(**kwargs)
 ```
 
 `OLE2 inconsistency` warnings may pop up sometimes -- don't worry about that: it happens while reading an .xls file content into pandas because some of the files at crimestat.ru are a little bit malformed -- but it doesn't affect anything.
+
+
 
 
