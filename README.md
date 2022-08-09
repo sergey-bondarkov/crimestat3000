@@ -30,8 +30,8 @@ kwargs = {
     # 'keep'         : {'all', 'articles', 'articles+'}   # 'all';
                                                           # 'article+' will get you all
                                                           # the sheet's with anything specific 
-                                                          # mentioned: article, it's part or 
-                                                          paragraph;
+                                                          # mentioned: article, its part or 
+                                                          # paragraph;
                                                           # choose 'articles' if you need 
                                                           # ONLY articles sheets, 
                                                           # WITH NO subdifferentiation.
