@@ -2,6 +2,7 @@ Metadata-Version: 2.1
 Name: crimestat3000
 Version: 0.1.6
 Summary: A tool for parsing crime statistics reports (form 4-ЕГС) from crimestat.ru.
+Home-page: https://github.com/def-useful/crimestat3000
 Author: Sergey Bondarkov
 Author-email: q4qk79ncm@mozmail.com
 License: UNKNOWN
@@ -42,8 +43,8 @@ kwargs = {
     # 'keep'         : {'all', 'articles', 'articles+'}   # 'all';
                                                           # 'article+' will get you all
                                                           # the sheet's with anything specific 
-                                                          # mentioned: article, it's part or 
-                                                          paragraph;
+                                                          # mentioned: article, its part or 
+                                                          # paragraph;
                                                           # choose 'articles' if you need 
                                                           # ONLY articles sheets, 
                                                           # WITH NO subdifferentiation.
