@@ -11,7 +11,8 @@ from .helpers import (
 
 
 def one_month(month, section,
-              sheets='all', columns='C',
+              sheets='all', descr_row=4,
+              columns='C',
               keep='all',
               shorten_descr=False,
               local_dir=None):
@@ -35,8 +36,14 @@ def one_month(month, section,
     }
 
     for sheet in sheets_range:
-        descr = month_file.parse(sheet, nrows=5).iloc[4, 2]
-        short_descr = shorten_sheet_descr(descr)
+        descr = month_file.parse(sheet, nrows=5).iloc[descr_row, 2]
+        try:
+            short_descr = shorten_sheet_descr(descr)
+        except Exception as e:
+            print(f"Parsing failed at sheet {sheet}.")
+            print("Check if the sheet's description is in the 6th row (counting from 1).")
+            print("If not -- add `descr_row` argument to your function call\nspecifying the needed row (defaul value is 4).")
+
         if re.search(sheet_filter[keep], short_descr):
             continue
 
@@ -73,7 +80,7 @@ def one_month(month, section,
 
 
 def period(first_month, last_month, section,
-           sheets='all', columns='C',
+           sheets='all', descr_row=4, columns='C',
            keep='all', shorten_descr=False,
            local_dir=None, cumsum=False):
 

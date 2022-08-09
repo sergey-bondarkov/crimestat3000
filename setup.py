@@ -11,7 +11,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     name="crimestat3000",
-    version="0.1.5",
+    version="0.1.6",
     packages=find_packages(include=["crimestat3000", "crimestat3000.*"]),
     install_requires=['pandas'],
     python_requires='>=3.7'
