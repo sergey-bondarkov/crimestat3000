@@ -12,7 +12,7 @@ setup(
     long_description_content_type="text/markdown",
     name="crimestat3000",
     version="0.1.6",
-    url='github package source url',
+    url='https://github.com/def-useful/crimestat3000',
     packages=find_packages(include=["crimestat3000", "crimestat3000.*"]),
     install_requires=['pandas'],
     python_requires='>=3.7'

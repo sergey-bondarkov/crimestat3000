@@ -95,7 +95,7 @@ def cumsum_to_monthly_values(column_values):
 
 def rearrange_columns(table):
     articles_columns = [col for col in table.columns if not re.search(
-        r'region|federal_district|period_start|total|Строка\s+1\s*:', col)]
+        r'region|federal_district|period_end|total|Строка\s+1\s*:', col)]
     # articles_columns = table.select_dtypes(include=['float64', 'int64']).columns
     table = pd.concat(
         [table[sorted([col for col in table.columns if not col in articles_columns])], table[sorted(articles_columns)]], axis=1)
