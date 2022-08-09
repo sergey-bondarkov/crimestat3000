@@ -65,8 +65,8 @@ def one_month(month, section,
         else:
             month_table = pd.merge(month_table, sheet_table)
 
-    month_table['period_start'] = pd.to_datetime(f"{year}-{month}-01")
-    month_table.sort_values(['region', 'period_start'], inplace=True)
+    month_table['period_end'] = pd.to_datetime(f"{year}-{month}-01")
+    month_table.sort_values(['region', 'period_end'], inplace=True)
     month_table = rearrange_columns(month_table)
 
     return month_table
@@ -100,10 +100,10 @@ def period(first_month, last_month, section,
 
     if cumsum == False:
         cases_columns = [col for col in table.columns if col not in [
-            'region', 'federal_district', 'period_start']]
+            'region', 'federal_district', 'period_end']]
 
         table_grouped = table.groupby(
-            ['region', pd.Grouper(key='period_start', freq='Y')])
+            ['region', pd.Grouper(key='period_end', freq='Y')])
         table = pd.DataFrame()
         for _, subframe in table_grouped:
             subframe.reset_index(drop=True, inplace=True)
@@ -112,9 +112,9 @@ def period(first_month, last_month, section,
             table = pd.concat([table, subframe], ignore_index=True)
 
     table = rearrange_columns(table)
-    table.sort_values(['region', 'period_start'], inplace=True)
+    table.sort_values(['region', 'period_end'], inplace=True)
 
     if (cumsum == False) and (first_month[:2] != '01'):
-        table = table[table['period_start'] > first_month]
+        table = table[table['period_end'] > first_month]
 
     return table
