@@ -11,7 +11,8 @@ from .helpers import (
 
 
 def one_month(month, section,
-              sheets='all', descr_row=4,
+              sheets='all', 
+              descr_row=4,
               columns='C',
               keep='all',
               shorten_descr=False,
@@ -95,7 +96,9 @@ def period(first_month, last_month, section,
 
     for month in months:
         try:
-            month_table = one_month(month, section, sheets, columns,
+            month_table = one_month(month=month, section=section, 
+                                    sheets=sheets, descr_row=descr_row,
+                                    columns=columns,
                                     keep=keep,
                                     shorten_descr=shorten_descr,
                                     local_dir=local_dir)

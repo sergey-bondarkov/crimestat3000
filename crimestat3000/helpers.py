@@ -77,7 +77,7 @@ def districts_to_column(table):
 
     table.insert(loc=1, column='federal_district',
                  value=table['region'].map(districts_dict))
-    table = table[-table['federal_district'].isna()]
+    table = table[table['federal_district'].notna()]
 
     return table
 
