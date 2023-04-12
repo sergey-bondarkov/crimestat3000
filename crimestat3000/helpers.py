@@ -16,7 +16,8 @@ def shorten_sheet_descr(descr):
     article_group = re.search(
         r'(п\.\s*[«"]|ч\.\s*\d|ст\.\s*\d|\bглава\s+).*', descr)
     if article_group == None:
-        return re.search(r'строка\s*\d+\s*:', descr, re.IGNORECASE).group(0) + " no articles mentioned"
+        # return re.search(r'строка\s*\d+\s*:', descr, re.IGNORECASE).group(0) + " no articles mentioned"
+        return descr
     else:
         article = re.search(
             r"ст\.\s*(\d+(?:\s*[–,и\.]\s*\d+)*)\s*УП?К", article_group.group(0))
@@ -68,7 +69,8 @@ def districts_to_column(table):
         inplace=True)
 
     districts_dict = {}
-
+    
+    d = 'Российская Федерация'
     for row in table.itertuples():
         if re.search(r"федераль", row.region, re.IGNORECASE):
             d = row.region

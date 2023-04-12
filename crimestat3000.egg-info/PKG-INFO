@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: crimestat3000
-Version: 0.1.7
+Version: 0.1.10
 Summary: A tool for parsing crime statistics reports (form 4-ЕГС) from crimestat.ru.
 Home-page: https://github.com/def-useful/crimestat3000
 Author: Sergey Bondarkov

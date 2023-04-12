@@ -51,7 +51,7 @@ def one_month(month, section,
         sheet_table = month_file.parse(
             sheet, usecols=f"B,{','.join(columns)}", index_col=0)
         sheet_table = sheet_table.loc[
-            'Центральный федеральный округ':'Транспорт России'][:-1].reset_index()
+            'Российская Федерация':'Транспорт России'][:-1].reset_index()
 
         if shorten_descr == True:
             descr = short_descr
@@ -71,7 +71,7 @@ def one_month(month, section,
         if len(month_table) == 0:
             month_table = sheet_table.copy()
         else:
-            month_table = pd.merge(month_table, sheet_table)
+            month_table = pd.merge(month_table, sheet_table, how = 'left')
 
     month_table['period_end'] = pd.to_datetime(f"{year}-{month}-01")
     month_table.sort_values(['region', 'period_end'], inplace=True)
